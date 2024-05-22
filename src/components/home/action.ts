@@ -1,6 +1,6 @@
 "use server"
 
-import {Category, Course} from "../../interface";
+import {Category, Course} from "@/interface";
 
 interface HomePageComponent {
     componentType: string;
@@ -8,7 +8,7 @@ interface HomePageComponent {
 }
 
 export async function getHomePageComponents() {
-    const url = 'http://localhost:3001/pages/home';
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/pages/home`;
     const res = await fetch(url);
     return await res.json() as HomePageComponent[];
 }
